@@ -216,7 +216,13 @@ function RunForestRun(mp) {
         }
       } else { //no hq was sent, get them all
         unit = [];
-        fetchFromBeacon(unit, apiHost, token, fetchComplete, mp, firstrun);
+        var WarningExcessive = confirm("You are attempting to access statistics for all LHQs. This uses excessive resources. Only continue if required.");
+        if (WarningExcessive == true) {
+          fetchFromBeacon(unit, apiHost, token, fetchComplete, mp, firstrun);
+          console.log("Warning Overridden");
+        } else {
+          window.location.replace(params.source);
+        }
       }
     } else {
       console.log("rerun...will NOT fetch vars");
