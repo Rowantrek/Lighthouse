@@ -216,6 +216,7 @@ function RunForestRun(mp) {
         }
       } else { //no hq was sent, get them all
         unit = [];
+        // warn user before accessing all!
         var WarningExcessive = confirm("You are attempting to access statistics for all LHQs. This uses excessive resources. Only continue if required.");
         if (WarningExcessive == true) {
           fetchFromBeacon(unit, apiHost, token, fetchComplete, mp, firstrun);
